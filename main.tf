@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 
-resource "aws_instance" "test" {
-  instance_type = "t2.micro"
-  ami           = "ami-da9e2cbc"
-}
+# resource "aws_instance" "test" {
+#   instance_type = "t2.micro"
+#   ami           = "ami-da9e2cbc"
+# }
