@@ -1,9 +1,9 @@
 output "WEB_IP" {
   value       = module.nginx-server.ip
-  description = "nginx web server ip address"
+  description = "NGINX web server ip address"
 }
 
-output "ss_IP" {
+output "SS_IP" {
   value       = module.ss-server.ip
-  description = "shadowsocks server ip address"
+  description = "Shadowsocks server ip address"
 }

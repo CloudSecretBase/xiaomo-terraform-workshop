@@ -1,38 +1,34 @@
 variable "region" {
   type        = string
-  default     = "ap-northeast-1"
-  description = "aws region"
+  description = "AWS region"
 }
 
 variable "amis" {
   type        = map(string)
-  default     = {
-    ap-northeast-1 = "ami-a3ed72c5"
-  }
   description = "AMI ID"
 }
 
 variable "instance_type" {
   type        = string
-  default     = "t2.micro"
-  description = "ECS instance type"
+  description = "EC2 instance type"
 }
 
-variable "public_key" {
+variable "ssh_key_name" {
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
-  description = "SSH public key"
+  description = "SSH key name"
 }
 
-variable "security_group_id" {
+variable "server_name" {
   type        = string
-  default     = "sg-ebf111a1"
-  description = "security group id"
+  description = "Server name"
 }
-
 
 variable "server_port" {
   type        = number
-  default     = 22
-  description = "port"
+  description = "Server port"
+}
+
+variable "server_script" {
+  type        = string
+  description = "Server post run script"
 }
