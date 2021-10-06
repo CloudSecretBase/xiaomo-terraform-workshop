@@ -24,15 +24,15 @@ variable "public_key" {
   description = "SSH public key"
 }
 
-variable "security_group" {
+variable "security_group_id" {
   type        = string
   default     = "sg-ebf111a1"
   description = "security group id"
 }
 
 
-variable "ss_password" {
-  type        = string
-  default     = "xiaomo2019"
-  description = "ss password"
+variable "server_port" {
+  type        = number
+  default     = 22
+  description = "port"
 }
