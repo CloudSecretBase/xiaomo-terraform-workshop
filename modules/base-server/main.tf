@@ -17,6 +17,9 @@ resource "aws_instance" "server" {
   tags          = {
     Name = var.server_name
   }
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 # 开放其它端口
@@ -27,4 +30,10 @@ resource "aws_security_group_rule" "other" {
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = data.aws_security_groups.default.ids[0]
+}
+
+# 绑定弹性IP地址
+resource "aws_eip" "lb" {
+  instance = aws_instance.server.id
+  vpc=true
 }

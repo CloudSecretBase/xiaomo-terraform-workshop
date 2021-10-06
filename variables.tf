@@ -5,8 +5,8 @@ variable "region" {
 }
 
 variable "amis" {
-  type        = map(string)
-  default     = {
+  type = map(string)
+  default = {
     ap-northeast-1 = "ami-a3ed72c5"
   }
   description = "AMI ID"
