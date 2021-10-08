@@ -2,5 +2,6 @@
 
 sudo apt update
 sudo apt install -y nginx
-echo Created: ${time} | sudo tee /var/www/html/index.html
+# shellcheck disable=SC2154
+echo Created: "${time}" | sudo tee /var/www/html/index.html
 exit 0
