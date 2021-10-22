@@ -4,7 +4,7 @@ url="$1"
 
 count=1
 
-while [ true ]; do
+while  true ; do
   echo -n $count:
   curl "$url"
   sleep 30
