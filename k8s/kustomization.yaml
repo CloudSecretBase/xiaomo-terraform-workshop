@@ -1,5 +1,5 @@
 configMapGenerator:
-- name: special-config-2
+- name: special-config
   literals:
   - special.how=very
   - special.type=charm
