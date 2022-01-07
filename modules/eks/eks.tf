@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "cluster" {
   name     = local.cluster_name
   role_arn = aws_iam_role.eks-master.arn
-#  version  = local.cluster_version
+  #  version  = local.cluster_version
 
   vpc_config {
     security_group_ids = [aws_security_group.eks-master.id]
@@ -12,6 +12,16 @@ resource "aws_eks_cluster" "cluster" {
     "aws_iam_role_policy_attachment.eks-cluster",
     "aws_iam_role_policy_attachment.eks-service",
   ]
+  tags = {
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/eks.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "4cf1a67a-2203-4b20-8c6e-a0c108848d45"
+  }
 }
 
 locals {

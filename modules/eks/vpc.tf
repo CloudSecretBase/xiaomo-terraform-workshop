@@ -5,7 +5,17 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
   instance_tenancy     = "default"
-  tags                 = merge(local.default_tags, tomap({"Name"="eks-vpc"}))
+  tags = merge(local.default_tags, tomap({ "Name" = "eks-vpc" }), {
+    Name                 = "eks-vpc"
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/vpc.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "3ae4e793-69ed-4ee0-89c1-d5e93abf3fbf"
+  })
 }
 
 # ---
@@ -15,14 +25,34 @@ resource "aws_subnet" "sn" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = cidrsubnet(var.vpc_cidr_block, 8, count.index)
   availability_zone = element(data.aws_availability_zones.available.names, count.index % var.num_subnets)
-  tags              = merge(local.default_tags, tomap({ "Name" = "eks-sn" }))
+  tags = merge(local.default_tags, tomap({ "Name" = "eks-sn" }), {
+    Name                 = "eks-sn"
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/vpc.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "7841714d-92bc-4acf-b204-d8ac11b3f27f"
+  })
 }
 
 # ---
 # Internet Gateway
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
-  tags   = merge(local.default_tags, tomap({ "Name" = "eks-igw" }))
+  tags = merge(local.default_tags, tomap({ "Name" = "eks-igw" }), {
+    Name                 = "eks-igw"
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/vpc.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "4cd219d4-473f-4fb5-9a01-dd08f9e5b54d"
+  })
 }
 
 # ---
@@ -33,7 +63,17 @@ resource "aws_route_table" "rt" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
-  tags   = merge(local.default_tags, tomap({ "Name" = "eks-rt" }))
+  tags = merge(local.default_tags, tomap({ "Name" = "eks-rt" }), {
+    Name                 = "eks-rt"
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/vpc.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "1b2c5c33-64ec-4af5-a290-ce834e809ce7"
+  })
 }
 
 resource "aws_route_table_association" "rta" {
@@ -63,7 +103,17 @@ resource "aws_security_group" "eks-master" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(local.default_tags, tomap({ "Name" = "eks-master-sg" }))
+  tags = merge(local.default_tags, tomap({ "Name" = "eks-master-sg" }), {
+    Name                 = "eks-master-sg"
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/vpc.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "c297d86f-54c3-443e-9b39-98e328a1cc07"
+  })
 }
 
 resource "aws_security_group" "eks-node" {
@@ -103,5 +153,15 @@ resource "aws_security_group" "eks-node" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(local.default_tags, tomap({ "Name" = "eks-node-sg" }))
+  tags = merge(local.default_tags, tomap({ "Name" = "eks-node-sg" }), {
+    Name                 = "eks-node-sg"
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/vpc.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "436e64e0-78cf-4261-a0ae-bcd08e41777f"
+  })
 }

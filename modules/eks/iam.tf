@@ -17,6 +17,16 @@ resource "aws_iam_role" "eks-master" {
   ]
 }
 POLICY
+  tags = {
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/iam.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "23776bc0-b72d-4dbe-8801-d06719a47646"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "eks-cluster" {
@@ -48,6 +58,16 @@ resource "aws_iam_role" "eks-node" {
   ]
 }
 POLICY
+  tags = {
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/iam.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "f39c5705-9412-4c72-ad49-8ed0495b9a38"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "eks-worker-node" {
@@ -68,4 +88,14 @@ resource "aws_iam_role_policy_attachment" "ecr-ro" {
 resource "aws_iam_instance_profile" "eks-node" {
   name = "eks-node-profile"
   role = aws_iam_role.eks-node.name
+  tags = {
+    git_commit           = "d7ef81dda8108ae72532cd8fcb27277523383fa3"
+    git_file             = "modules/eks/iam.tf"
+    git_last_modified_at = "2021-10-08 10:47:45"
+    git_last_modified_by = "ko.h@ctw.inc"
+    git_modifiers        = "ko.h"
+    git_org              = "houko"
+    git_repo             = "terraform-aws"
+    yor_trace            = "04f9eda5-d1f3-4342-af50-ffc756573a27"
+  }
 }
