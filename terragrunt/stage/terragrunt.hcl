@@ -18,6 +18,7 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "aws" {
+  profile  = "g123-stg"
   region  = "ap-northeast-1"
 }
 EOF
