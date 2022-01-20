@@ -1,6 +1,6 @@
 provider "aws" {
   region = "ap-northeast-1"
-  #  profile = "stg"
+    profile = "g123-stg"
 }
 
 
@@ -30,13 +30,7 @@ resource "aws_instance" "matt_ec2" {
   key_name               = "suzukaze_hazuki"
   subnet_id              = "subnet-097c599849fc3d92a"
   tags = {
-    git_commit           = "N/A"
-    git_file             = "test/main.tf"
-    git_last_modified_at = "2022-01-20 23:23:39"
-    git_last_modified_by = "suzukaze.hazuki2020@gmail.com"
-    git_modifiers        = "suzukaze.hazuki2020"
-    git_org              = "houko"
-    git_repo             = "terraform-aws"
-    yor_trace            = "1bef827f-7396-49f2-8697-9a7e6f7c75df"
+    "resource" = "ec2"
+    yor_trace  = "42e1b2d2-70a6-4229-9324-efeeb4c64de8"
   }
 }
