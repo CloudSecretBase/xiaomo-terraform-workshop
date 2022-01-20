@@ -17,11 +17,18 @@ ENTRYPOINT ["ls","-a"]
 CMD /bin/bash
 
 
-# build命令
-    # docker build -f centos.volume.Dockerfile -t xiaomo/mycentos .
+# build命令(用户名/镜像名:版本号)
+    # docker build -f centos.Dockerfile -t xiaomoinfo/mycentos:v1.0.0 .
 
-# 运行
-    # docker run -it --name mycentos1 xiaomo/mycentos:q:q
+# 运行(用户名/镜像名:版本号)
+    # docker run -it --name mycentos1 xiaomoinfo/mycentos:v1.0.0
+
+# 登陆
+    # docker login
+
+# 推送(用户名/镜像名:版本号)
+    # docker push xiaomoinfo/mycentos:v1.0.0
+
 # feature
     # 默认工作目录在/usr/local
     # 默认安装了vim 因为安装了vim
