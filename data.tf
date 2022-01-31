@@ -1,6 +1,6 @@
 data "external" "vpc" {
   program = ["bash", "./scripts/get_vpc.sh"]
-  query   = {
+  query = {
     profile  = "default"
     vpc_name = "default"
   }

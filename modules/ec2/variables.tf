@@ -17,7 +17,7 @@ variable "os" {
 }
 
 variable "vpc" {
-  type = string
-  default = "vpc-0d7aeb9c78e9e786a"
+  type        = string
+  default     = "vpc-0d7aeb9c78e9e786a"
   description = "vpc id"
 }
