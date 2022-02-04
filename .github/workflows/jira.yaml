@@ -42,13 +42,13 @@ jobs:
         # customfield_10091 is team custom field
         extraFields: '{"fixVersions": [{"name": "TBD"}], "customfield_10091": ["ecosystem", "runtime"], "customfield_10089": "${{ github.event.issue.html_url || github.event.pull_request.html_url }}"}'
 
-    - name: Search
-      if: github.event.action != 'opened'
-      id: search
-      uses: tomhjp/gh-action-jira-search@v0.2.1
-      with:
-        # cf[10089] is Issue Link custom field
-        jql: 'project = "CLOUD" and cf[10089]="${{ github.event.issue.html_url || github.event.pull_request.html_url }}"'
+#    - name: Search
+#      if: github.event.action != 'opened'
+#      id: search
+#      uses: tomhjp/gh-action-jira-search@v0.2.1
+#      with:
+#        # cf[10089] is Issue Link custom field
+#        jql: 'project = "CLOUD" and cf[10089]="${{ github.event.issue.html_url || github.event.pull_request.html_url }}"'
 
     - name: Sync comment
       if: github.event.action == 'created' && steps.search.outputs.issue
