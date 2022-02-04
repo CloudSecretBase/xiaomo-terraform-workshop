@@ -34,7 +34,7 @@ jobs:
       if: github.event.action == 'opened'
       uses: tomhjp/gh-action-jira-create@v0.2.0
       with:
-        project: VAULT
+        project: CLOUD
         issuetype: "GH Issue"
         summary: "${{ github.event.repository.name }} [${{ steps.preprocess.outputs.type }} #${{ github.event.issue.number || github.event.pull_request.number }}]: ${{ github.event.issue.title || github.event.pull_request.title }}"
         description: "${{ github.event.issue.body || github.event.pull_request.body }}\n\n_Created from GitHub Action for ${{ github.event.issue.html_url || github.event.pull_request.html_url }} from ${{ github.actor }}_"
