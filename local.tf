@@ -1,7 +1,7 @@
 locals {
   ec2 = {
     ssh_key        = "aws_suzukaze"
-    instance_count = 2
+    instance_count = 1
     os             = {
       linux  = "amazon_linux_2",
       ubuntu = "ubuntu"

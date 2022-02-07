@@ -33,3 +33,9 @@ variable "instance_count" {
   default     = 1
   description = "number of instances"
 }
+
+variable "user_data" {
+  type        = string
+  default     = ""
+  description = "user data"
+}
