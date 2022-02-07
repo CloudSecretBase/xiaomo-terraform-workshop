@@ -1,4 +1,5 @@
 locals {
+  // -------------------------------------------------------------------------
   ec2 = {
     ssh_key        = "aws_suzukaze"
     instance_count = 1
@@ -10,6 +11,14 @@ locals {
     amis = {
       "amazon_linux_2" = "ami-03d79d440297083e3"
       "ubuntu"         = "ami-0fe0d4d94786add8e"
+    }
+  }
+
+  //----------------------------------------------------------------------------
+  s3 = {
+    acl = {
+      public_read = "public-read"
+      private     = "private"
     }
   }
 }
