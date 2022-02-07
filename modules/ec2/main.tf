@@ -1,7 +1,8 @@
 resource "aws_instance" this {
-  ami           = "ami-03d79d440297083e3"
-  instance_type = var.instanceType
-  key_name      = "aws_suzukaze"
+  ami           = var.ami
+  instance_type = var.instance_type
+  key_name      = var.ssh_key
+  count         = var.instance_count
   tags          = {
     Name = var.name
   }
